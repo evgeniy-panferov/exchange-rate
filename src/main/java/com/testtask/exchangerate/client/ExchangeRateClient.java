@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "${feign.openexchangerates.name}", url = "${feign.openexchangerates.url}")
 public interface ExchangeRateClient {
 
-    @GetMapping(path = "${feign.openexchangerates.historical}/{date}", headers = "Authorization = ${feign.openexchangerates.authorization}")
+    @GetMapping(path = "${feign.openexchangerates.historical}/{date}", headers = "Authorization=${feign.openexchangerates.authorization}")
     Rate getExchangeRate(@RequestParam String base, @RequestParam String symbols, @PathVariable String date);
 }

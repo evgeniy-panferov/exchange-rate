@@ -24,4 +24,5 @@ public class Gif {
     @JsonProperty(value = "images")
     @JsonDeserialize(using = GetOriginalFromImagesList.class)
     private Original original;
+
 }

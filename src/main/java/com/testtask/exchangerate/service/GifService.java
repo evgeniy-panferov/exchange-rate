@@ -22,7 +22,7 @@ public class GifService {
     private final ExchangeApi exchangeApi;
 
     @Value("${feign.openexchangerates.symbols}")
-    private String exchange;
+    private String symbol;
 
     public Gif getGif(String code) {
         boolean b = rateIsUp(code);
@@ -40,8 +40,8 @@ public class GifService {
         String yesterday = LocalDate.now().minusDays(1).toString() + ".json";
         Rate todayExchange = exchangeApi.getExchange(code, now);
         Rate yesterdayExchange = exchangeApi.getExchange(code, yesterday);
-        Double rubToday = todayExchange.getRates().get(exchange);
-        Double rubYesterday = yesterdayExchange.getRates().get(exchange);
+        Double rubToday = todayExchange.getRates().get(symbol.toUpperCase());
+        Double rubYesterday = yesterdayExchange.getRates().get(symbol.toUpperCase());
         log.info("GifService rubToday - {}, rubYesterday - {}", rubToday, rubYesterday);
         return rubToday > rubYesterday;
     }

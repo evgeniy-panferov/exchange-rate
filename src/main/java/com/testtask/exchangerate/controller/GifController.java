@@ -17,7 +17,7 @@ public class GifController {
 
     @PostMapping("/gif")
     public String getGif(@RequestParam String code, Model model) {
-        String gifUrl = gifService.getGif(code).getOriginal().getUrl();
+        String gifUrl = gifService.getGif(code.toUpperCase()).getOriginal().getUrl();
         model.addAttribute("gifUrl", gifUrl);
         log.info("ExchangeController getGif code - {}, gifUrl-{}", code, gifUrl);
         return "gif";

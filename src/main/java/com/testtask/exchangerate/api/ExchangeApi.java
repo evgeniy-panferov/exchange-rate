@@ -18,7 +18,7 @@ public class ExchangeApi {
     private String symbol;
 
     public Rate getExchange(String code, String date) {
-        log.info("ExchangeApi getExchange base - {}, symbol- {}, date - {}", code, symbol, date);
-        return exchangeRateClient.getExchangeRate(code, symbol, date);
+        log.info("ExchangeApi getExchange base - {}, symbol- {}, date - {}", code, symbol.toUpperCase(), date);
+        return exchangeRateClient.getExchangeRate(code, symbol.toUpperCase(), date);
     }
 }
