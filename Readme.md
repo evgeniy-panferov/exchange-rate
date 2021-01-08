@@ -21,3 +21,7 @@
 - feign.openexchangerates.base= базовая валюта, от которой измеряем отношение - usd, 
 так как api платное 
 - feign.openexchangerates.authorization= токен для доступа к api
+
+### Ссылка на docker image
+https://hub.docker.com/r/evgeniypnf/exchange-rate
+Скачайте образ, запустите контейнер с пробросом порта 8080, на нужный вам порт.  
